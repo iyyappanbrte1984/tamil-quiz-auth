@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Result</title>
+</head>
+<body>
+
+<h2>Result</h2>
+<p id="res"></p>
+
+<script src="supabase.js"></script>
+<script>
+(async () => {
+  const { data: { user } } = await sb.auth.getUser();
+  const score = localStorage.getItem("score");
+
+  res.innerText = "Your score: " + score;
+
+  await sb.from("quiz_results").insert({
+    user_email: user.email,
+    score: score
+  });
+})();
+</script>
+
+</body>
+</html>
