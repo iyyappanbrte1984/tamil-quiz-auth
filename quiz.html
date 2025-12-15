@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz</title>
+</head>
+<body>
+
+<h2>Simple Quiz</h2>
+
+<p>1. Tamil is one of the _____ languages?</p>
+<button onclick="answer(1)">Oldest</button>
+<button onclick="answer(0)">Newest</button>
+
+<script src="supabase.js"></script>
+<script>
+let score = 0;
+
+function answer(v) {
+  score = v;
+  localStorage.setItem("score", score);
+  window.location = "result.html";
+}
+</script>
+
+</body>
+</html>
